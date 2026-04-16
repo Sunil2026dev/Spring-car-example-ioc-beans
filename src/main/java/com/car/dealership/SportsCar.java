@@ -3,10 +3,15 @@ package com.car.dealership;
 public class SportsCar implements Car{
 
     String Owner;
+    Tyre tyre;
+
+    public SportsCar(Tyre tyre){
+        this.tyre = tyre;
+    }
 
     @Override
     public void getInfo() {
-        System.out.println(Owner + " owns a Sorts Car");
+        System.out.println(Owner + " owns a Sorts Car" + tyre.getTyreInfo());
     }
 
     @Override

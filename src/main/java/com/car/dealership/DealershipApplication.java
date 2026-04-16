@@ -14,7 +14,8 @@ public class DealershipApplication {
 
 		ClassPathXmlApplicationContext context =new ClassPathXmlApplicationContext("applicationContext.xml");
 
-		Car normalCar = (Car) context.getBean("normalCar");
+		Car normalCarSimpleTyre = (Car) context.getBean("normalCarNormalTyre");
+		Car normalCarSportsTyre = (Car) context.getBean("normalCarSportsTyre");
 		Car sportsCar = (Car) context.getBean("sportsCar");
 		Car truck = (Car) context.getBean("truck");
 		Scanner sc= new Scanner(System.in);
@@ -26,14 +27,30 @@ public class DealershipApplication {
 		System.out.println("3) For Truck");
 		int Choice = sc.nextInt();
 
-		normalCar.setOwnerName(name);
+
+		normalCarSimpleTyre.setOwnerName(name);
+		normalCarSportsTyre.setOwnerName(name);
 		sportsCar.setOwnerName(name);
 		truck.setOwnerName(name);
 
 
 		switch (Choice){
 			case 1:
-				normalCar.getInfo();
+				System.out.println("Please enter tyre type");
+				System.out.println("1) Normal Tyre \n 2) Sports Tyre;");
+				int tyreChoice = sc.nextInt();
+				switch (tyreChoice){
+					case 1 :
+						normalCarSimpleTyre.getInfo();
+						break;
+					case 2 :
+						normalCarSportsTyre.getInfo();
+						break;
+					default:
+						System.out.println("Invalid Choice");
+						break;
+				}
+//				normalCarSimpleTyre.getInfo();
 				break;
 			case 2:
 				sportsCar.getInfo();
