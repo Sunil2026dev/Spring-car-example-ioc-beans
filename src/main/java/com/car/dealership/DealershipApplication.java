@@ -16,7 +16,8 @@ public class DealershipApplication {
 
 		Car normalCarSimpleTyre = (Car) context.getBean("normalCarNormalTyre");
 		Car normalCarSportsTyre = (Car) context.getBean("normalCarSportsTyre");
-		Car sportsCar = (Car) context.getBean("sportsCar");
+		Car sportsCarSportyTyre = (Car) context.getBean("sportsCarSportsTyre");
+		Car sportsCarHeavylyTyre= (Car) context.getBean("sportsCarHeavyTyre");
 		Car truck = (Car) context.getBean("truck");
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Hi, please enter your name:");
@@ -30,7 +31,8 @@ public class DealershipApplication {
 
 		normalCarSimpleTyre.setOwnerName(name);
 		normalCarSportsTyre.setOwnerName(name);
-		sportsCar.setOwnerName(name);
+		sportsCarSportyTyre.setOwnerName(name);
+		sportsCarHeavylyTyre.setOwnerName(name);
 		truck.setOwnerName(name);
 
 
@@ -53,7 +55,20 @@ public class DealershipApplication {
 //				normalCarSimpleTyre.getInfo();
 				break;
 			case 2:
-				sportsCar.getInfo();
+				System.out.println("Please enter tyre type");
+				System.out.println("1) Sports Tyre \n 2) Heavy Tyre");
+				int ScTyreChoice = sc.nextInt();
+				switch (ScTyreChoice){
+					case 1 :
+						sportsCarSportyTyre.getInfo();
+						break;
+					case 2 :
+						sportsCarHeavylyTyre.getInfo();
+						break;
+					default:
+						System.out.println("Invalid Choice");
+				}
+//				sportsCarSportyTyre.getInfo();
 				break;
 			case 3:
 				truck.getInfo();
